@@ -110,7 +110,7 @@ export default {
       let tileNEX = new google.maps.ImageMapType({
         getTileUrl: function(tile, zoom) {
             // We append (new Date()).getTime() to prevent browser caching of returned images.
-            return "http://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/" +
+            return "https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/" +
                     zoom + "/" + tile.x + "/" + tile.y +".png?"+ (new Date()).getTime();
         },
         tileSize: new google.maps.Size(256, 256),
