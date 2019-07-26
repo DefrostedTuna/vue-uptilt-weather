@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  app:
+    image: node:11-alpine
+    # We run a rebuild of node-sass before serving the application
+    # so that node-sass can fetch the bindings for Alpine instead of OSX.
+    command: [sh, -c, "npm rebuild node-sass && yarn run serve"]
+    volumes:
+      - ./:/app
+    working_dir: /app
+    expose:
+      - "8080"
+    env_file:
+      - .env
+    networks:
+      - uptilt
+
+networks:
+  uptilt:
+    external:
+      name: uptilt
