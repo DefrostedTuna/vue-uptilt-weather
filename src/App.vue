@@ -3,7 +3,7 @@
   <header>
     <nav>
       <div class="nav-wrapper blue">
-        <form @submit.prevent="fetchLatLng()">
+        <form @submit.prevent="updateLocation()">
           <div class="input-field">
             <input id="search"
                    type="search"
@@ -62,6 +62,13 @@ export default {
   },
 
   methods: {
+    updateLocation() {
+      this.initMap();
+      this.getWeatherForecast();
+
+      document.getElementById('search').blur();
+    },
+
     setup() {
       this.initMap();
       this.getWeatherForecast();
